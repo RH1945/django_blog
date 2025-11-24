@@ -8,6 +8,10 @@ from .forms import CollaborateForm
 
 
 def about_me(request):
+    """
+    Renders the recent information about the author and collaboration request
+    model about about
+    """
     if request.method == "POST":
         collaborate_form = CollaborateForm(data=request.POST)
         if collaborate_form.is_valid():
