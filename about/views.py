@@ -33,14 +33,11 @@ def about_me(request):
                 'Collaboration request received! I endeavour to respond within 2 working days.'
             )
     about = About.objects.all().order_by('-updated_on').first()
-    if about is None:
-        # Either:
-        # raise Http404("About page not yet configured")
-        # OR pass None and let the template handle it
-        pass
     collaborate_form = CollaborateForm()
+
     return render(
         request,
         "about/about.html",
-        {"about": about, "collaborate_form": collaborate_form},
+        {"about": about,
+         "collaborate_form": collaborate_form},
     )
